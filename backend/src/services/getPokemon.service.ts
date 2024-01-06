@@ -1,5 +1,6 @@
 import { IPokemonAbilities, IPokemonAbility} from "../interfaces/index"
 import { NotFoundError } from "../errors/index"
+import { redis } from "../lib/redis"
 
 const BASE_POKE_API_URL: string = "https://pokeapi.co/api/v2/pokemon/"
 
@@ -9,6 +10,14 @@ interface Input{
 
 const getPokemonService = async ({poke_name}: Input): Promise<IPokemonAbilities> => {
     
+    const cachedPokemon = await redis.get(poke_name)
+
+    if(cachedPokemon){
+        console.log(`Esse console será exibido para informar que os dados do pokemon ${poke_name} foram buscados no cache.`)
+        const updatedCachedPokemon: IPokemonAbilities = JSON.parse(cachedPokemon)
+        return updatedCachedPokemon
+    }
+
     const response = await fetch(`${BASE_POKE_API_URL}${poke_name}`);
     
     if (!response.ok) {
@@ -19,9 +28,13 @@ const getPokemonService = async ({poke_name}: Input): Promise<IPokemonAbilities>
         })
     }
 
+    console.log(`Esse console será exibido caso o pokemon ${poke_name} não esteja no cache`)
+
     const pokemonData = await response.json();
 
     const pokemonAbilities = sortAlphabetically(pokemonData)
+
+    await redis.set(poke_name, JSON.stringify(pokemonAbilities))
 
     return pokemonAbilities    
     
