@@ -1,19 +1,10 @@
+import { IPokemonAbilities, IPokemonAbility} from "../interfaces/index"
+
 const BASE_POKE_API_URL: string = "https://pokeapi.co/api/v2/pokemon/"
 
 interface Input{
     poke_name: string
 }
-
-interface IPokemonAbility {
-    ability: {
-        name: string;
-        url: string;
-    };
-    is_hidden: boolean;
-    slot: number;
-}
-
-interface IPokemonAbilities extends Array<IPokemonAbility> {}
 
 const getPokemonService = async ({poke_name}: Input): Promise<IPokemonAbilities> => {
     try {
