@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 
-const PokemonNameSchema = z.string().min(1).transform((pokemonName) => pokemonName.toLowerCase());
+const PokemonNameSchema = z.string().min(2).transform((pokemonName) => pokemonName.toLowerCase());
 
 const validateAndTransformPokemonName = (req: Request, res: Response, next: NextFunction): void => {
 
@@ -13,7 +13,7 @@ const validateAndTransformPokemonName = (req: Request, res: Response, next: Next
     next();
 
   } catch (error) {
-    res.status(400).json({ error: "Nome do Pokémon inválido" });
+    res.status(400).json({ error: "Nome do Pokémon inválido." });
   }
 };
 
