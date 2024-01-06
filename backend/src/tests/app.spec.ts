@@ -1,5 +1,6 @@
 import request from "supertest"
 import { app } from "../app"
+import { sortAlphabetically } from "../services/getPokemon.service"
 
 describe("Test the main API route using pikachu", () => {
 
@@ -56,3 +57,23 @@ describe("Test the main API route using a non exist pokemon name", () => {
         expect(testResponse.body.error).toHaveProperty("errorLocationCode", "backend_src_services_getPokemon.service.ts");
     });
 })
+
+describe("sortAlphabetically function", () => {
+    it("Should sort Pokemon abilities alphabetically", () => {
+        const mockPokemonData = {
+            abilities: [
+                { ability: { name: "ability3" } },
+                { ability: { name: "ability1" } },
+                { ability: { name: "ability2" } },
+            ],
+        };
+
+        const sortedAbilities = sortAlphabetically(mockPokemonData);
+
+        expect(sortedAbilities).toEqual([
+            { ability: { name: "ability1" } },
+            { ability: { name: "ability2" } },
+            { ability: { name: "ability3" } },
+        ]);
+    });
+});

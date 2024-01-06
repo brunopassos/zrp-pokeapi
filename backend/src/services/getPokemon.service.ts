@@ -27,7 +27,7 @@ const getPokemonService = async ({poke_name}: Input): Promise<IPokemonAbilities>
     
 }
 
-function sortAlphabetically(pokemonData: any){
+export function sortAlphabetically(pokemonData: any){
     const pokemonAbilities: IPokemonAbilities = pokemonData.abilities.sort((a: IPokemonAbility, b: IPokemonAbility) => {
         const nameA = a.ability.name.toLowerCase();
         const nameB = b.ability.name.toLowerCase()
