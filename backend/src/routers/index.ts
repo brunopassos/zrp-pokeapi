@@ -1,8 +1,9 @@
 import { Router } from "express"
 import { getPokemonController } from "../controllers/getPokemon.controllers"
+import { validateAndTransformPokemonName } from "../middleware/validateAndTransformPokemonName.middleware"
 
 const pokemonRoutes: Router = Router()
 
-pokemonRoutes.get("/api/pokemons/:poke_name", getPokemonController)
+pokemonRoutes.get("/api/pokemons/:poke_name", validateAndTransformPokemonName, getPokemonController)
 
 export {pokemonRoutes}
