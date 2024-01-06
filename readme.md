@@ -7,6 +7,13 @@
 
 - Node, Next, Jest, supertest, zod, Redis e toastify
 
+## Rodando a aplicação
+
+- Faça o clone do repositório.
+- Será necessário rodar o comando `npm i` dentro da pasta `backend` e também dentro da pasta `frontend`
+- Execute o comando `npm run dev` dentro da pasta `backend` e também dentro da pasta `frontend` em terminais separados
+- É esperado que a aplicação possa ser acessada no navegador pelo endereço `http://localhost:3000`
+
 ## Backend
 
 ### GET POKEMON
