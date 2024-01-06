@@ -1,5 +1,12 @@
 # Documentação
 
+## Objetivo
+- Desenvolver uma aplicação que funcione como um `middleware` da pokéApi que deve retornar as habilidade do pokémon buscado ordenadas em ordem alfabética.
+
+## Tecnologias utilizadas
+
+- Node, Next, Jest, supertest, zod and toastify
+
 ## Backend
 
 ### GET POKEMON
@@ -111,3 +118,5 @@ Ran all test suites.
 
 - Caso seja digitado um pokémon que não existe:
 ![Alt text](image-4.png)
+
+
