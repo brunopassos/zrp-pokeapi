@@ -8,13 +8,13 @@ const getPokemonController = async (req: Request, res: Response): Promise<Respon
     try {
         const pokemonData = await getPokemonService({ poke_name });
     
-        res.status(200).json(pokemonData);
+        return res.status(200).json(pokemonData);
         
       } catch (error: any) {
         if (error instanceof NotFoundError) {
           const { message, statusCode, errorLocationCode } = error;
     
-          res.status(statusCode).json({
+          return res.status(statusCode).json({
             error: {
               message,
               statusCode,
@@ -23,7 +23,7 @@ const getPokemonController = async (req: Request, res: Response): Promise<Respon
           });
         } else {
           console.error(`Erro no servidor: ${error.message}`);
-          res.status(500).json({
+          return res.status(500).json({
             error: {
               message: "Erro interdo do servidor!",
               statusCode: 500,
