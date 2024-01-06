@@ -5,7 +5,7 @@
 
 ## Tecnologias utilizadas
 
-- Node, Next, Jest, supertest, zod, Redis e toastify
+- Node, Next, Jest, supertest, zod, Redis, Docker e toastify
 
 ## Rodando a aplicação
 
