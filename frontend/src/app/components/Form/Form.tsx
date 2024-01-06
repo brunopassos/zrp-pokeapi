@@ -47,10 +47,6 @@ export default function Form(){
         }
     }
 
-    useEffect(() => {
-        console.log("asd")
-    }, [isLoading])
-
 return (
     <section className="flex">
         <form action="" onSubmit={handleGetPokemonData} className="m-2">
