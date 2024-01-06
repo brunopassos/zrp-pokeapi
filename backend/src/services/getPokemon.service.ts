@@ -8,7 +8,7 @@ interface Input{
 
 const getPokemonService = async ({poke_name}: Input): Promise<IPokemonAbilities> => {
     try {
-        const response = await fetch(`${BASE_POKE_API_URL}${poke_name.toLowerCase()}`);
+        const response = await fetch(`${BASE_POKE_API_URL}${poke_name}`);
         
         if (!response.ok) {
             
