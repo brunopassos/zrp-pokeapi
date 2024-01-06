@@ -48,33 +48,32 @@ export default function Form(){
     }
 
 return (
-    <section className="flex">
-        <form action="" onSubmit={handleGetPokemonData} className="m-2">
-            <h1 className="text-xl mb-2">Digite abaixo o nome do pokemon</h1>
-            <input 
-                placeholder="pikachu"
-                type="text" 
-                name="" 
-                id="" 
-                onChange={(event) => handleSetPokemonName(event.target.value)} 
-                className="h-12 w-64 pl-2 bg-slate-700 rounded-l-md text-white outline-none"
-            />
-             
-            <button 
-            type='submit'
-            className="h-12 w-36 bg-[#1276DF] rounded-r-md text-white"
-            >
-                {isLoading ? "Carregando..." : "Buscar"}
-            </button>            
-        </form>
-        <div className="w-96 flex flex-col items-start justify-center pl-10">
-            {pokemonData && 
-                <h2 className="text-xl">Habilidades:</h2>
-            }
-            {pokemonData?.map((pokemonAbilitie) => {
-                return <p className="text-base pl-2" key={`${pokemonAbilitie.ability.name}`}>{pokemonAbilitie.ability.name}</p>
-            })}
-        </div>
-    </section>
+        <section className="flex">
+            <section className="flex bg-[#292929] w-[540px] h-[186px] rounded-md mt-32 mr-8">
+                <form action="" onSubmit={handleGetPokemonData} className="m-6">
+                    <h1 className="text-gray-100 font-roboto text-base font-normal leading-6 mb-2">Quero saber mais sobre...</h1>
+                    <input 
+                        placeholder="Nome do pokémon"
+                        type="text" 
+                        onChange={(event) => handleSetPokemonName(event.target.value)} 
+                        className="flex p-3 items-center gap-2 self-stretch rounded-md bg-yellow-200 w-[492px] h-[46px] mb-4"
+                        />
+                    
+                    <button 
+                    type='submit'
+                    className="w-[492px] h-[46px] bg-[#DE9400] rounded-md text-white"
+                    >
+                        {isLoading ? "Carregando..." : "Buscar pokémon"}
+                    </button>            
+                </form>
+            </section>
+            <aside className="min-w-[540px] min-h-[300px]  pl-10 bg-[#292929] rounded-md">
+                <h2 className="text-gray-100 font-roboto text-[24px] font-normal leading-160 mt-6">Informações do pokémon</h2>
+                <p className="text-gray-100 font-roboto text-[14px] font-normal leading-160 my-9">Habilidades</p>
+                {pokemonData?.map((pokemonAbilitie) => {
+                    return <p className=" flex items-center text-base pl-2 text-white border border-gray-700 w-[460px] h-[46px] mb-6" key={`${pokemonAbilitie.ability.name}`}>{pokemonAbilitie.ability.name}</p>
+                })}
+            </aside>
+        </section>
     )
 }
