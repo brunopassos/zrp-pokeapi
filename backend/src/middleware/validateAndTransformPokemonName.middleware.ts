@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { z } from "zod";
 
-const PokemonNameSchema = z.string().min(2).transform((pokemonName) => pokemonName.toLowerCase());
+const PokemonNameSchema = z.string().min(3).transform((pokemonName) => pokemonName.toLowerCase());
 
 const validateAndTransformPokemonName = (req: Request, res: Response, next: NextFunction): Response | void => {
 
@@ -13,7 +13,13 @@ const validateAndTransformPokemonName = (req: Request, res: Response, next: Next
     next();
 
   } catch (error) {
-    return res.status(400).json({ error: "Nome do Pokémon inválido." });
+    return res.status(400).json({
+      error: {
+        message: "Nome do pokémon inválido. Digite ao menos 3 caracteres.",
+        statusCode: 400,
+        errorLocationCode: "backend_src_middleware_validateAndTransformPokemonName.middleware.ts",
+      },
+    });
   }
 };
 
