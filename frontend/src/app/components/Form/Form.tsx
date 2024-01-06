@@ -21,31 +21,32 @@ export default function Form(){
     const [isLoading, setIsLoading] = useState(false)
 
     async function handleGetPokemonData(event: React.FormEvent) {
-        setIsLoading(true)
         event.preventDefault();
-        try {
-          const response = await fetch(`http://localhost:3333/api/pokemons/${pokemonName}`);
-          if (!response.ok) {
-            const errorData = await response.json();
-            const errorMessage = errorData.error.message;
-            throw new Error(`${errorMessage}`);
-          }
-          const result = await response.json();
-          setPokemonData(result);
-          setIsLoading(false)
-        } catch (error: any) {
-            toast.error(error.message);
-            setIsLoading(false)
-        } 
+        if(pokemonName.length < 3){
+            toast.error("Nome do pokémon inválido. Digite ao menos 3 caracteres!")
+        } else{
+            setIsLoading(true)
+            try {
+              const response = await fetch(`http://localhost:3333/api/pokemons/${pokemonName}`);
+              if (!response.ok) {
+                const errorData = await response.json();
+                const errorMessage = errorData.error.message;
+                throw new Error(`${errorMessage}`);
+              }
+              const result = await response.json();
+              setPokemonData(result);
+              setIsLoading(false)
+            } catch (error: any) {
+                toast.error(error.message);
+                setIsLoading(false)
+            } 
+        }
       }
 
     function handleSetPokemonName(value: string){
-        if(value.length < 3) {
-            setPokemonData(null)
-        }else{
-            setPokemonName(value)
-        }
+        setPokemonName(value)        
     }
+
 
 return (
         <section className="flex">
