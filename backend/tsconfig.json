@@ -16,11 +16,12 @@
 
     "exactOptionalPropertyTypes": false,
 
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["jest", "node"]
 
   },
 
-  "include": ["src/*", "src/server.ts"],
+  "include": ["src/tests/*", "src/server.ts"],
 
   "exclude": ["node_modules"]
 
