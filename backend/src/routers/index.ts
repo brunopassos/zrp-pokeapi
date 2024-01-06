@@ -4,6 +4,6 @@ import { validateAndTransformPokemonName } from "../middleware/validateAndTransf
 
 const pokemonRoutes: Router = Router()
 
-pokemonRoutes.get("/api/pokemons/:poke_name", validateAndTransformPokemonName, getPokemonController)
+pokemonRoutes.get("/pokemons/:poke_name", validateAndTransformPokemonName, getPokemonController)
 
 export {pokemonRoutes}
