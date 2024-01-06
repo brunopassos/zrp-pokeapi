@@ -5,7 +5,7 @@
 
 ## Tecnologias utilizadas
 
-- Node, Next, Jest, supertest, zod and toastify
+- Node, Next, Jest, supertest, zod, Redis e toastify
 
 ## Backend
 
@@ -97,6 +97,11 @@ Snapshots:   0 total
 Time:        5.016 s
 Ran all test suites.
 ```
+
+## CACHE
+
+- Utilizei `Redis` e `upstash.com` para fazer cache dos pokémons já buscados.
+- Adicionei alguns `console.log` no `service` para demonstrar uma vez que não é possível que seja feito o acesso na minha conta no upstash para verificar o cache. Qualquer dúvida podemos fazer uma call para demonstração.
 
 ## Frontend
 
