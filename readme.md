@@ -10,9 +10,11 @@
 ## Rodando a aplicação
 
 - Faça o clone do repositório.
-- É possível Dockerizar o `backend`, para isso execute o comando `docker build -t zrpteste/dockernode .`. Após isso execute `docker run -p 3333:3333 -d zrpteste/dockernode`
+- É possível Dockerizar o `backend`, para isso, entre na pasta `backend` e execute o comando `docker build -t zrpteste/dockernode .`. Após isso execute `docker run -p 3333:3333 -d zrpteste/dockernode`
 - Entre na pasta `frontend` e execute um `npm i` e depois `npm run dev`
 - Nesse ponto deve ser possível acessar a aplicação no endereço `http://localhost:3000/` e fazer as requisições
+
+Obs: As primeiras requisições via web estão falhando, então não desista rs
 
 ## Backend
 
