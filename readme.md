@@ -10,9 +10,9 @@
 ## Rodando a aplicação
 
 - Faça o clone do repositório.
-- Será necessário rodar o comando `npm i` dentro da pasta `backend` e também dentro da pasta `frontend`
-- Execute o comando `npm run dev` dentro da pasta `backend` e também dentro da pasta `frontend` em terminais separados
-- É esperado que a aplicação possa ser acessada no navegador pelo endereço `http://localhost:3000`
+- É possível Dockerizar o `backend`, para isso execute o comando `docker build -t zrpteste/dockernode .`. Após isso execute `docker run -p 3333:3333 -d bpassos/dockernode`
+- Entre na pasta `frontend` e execute um `npm i` e depois `npm run dev`
+- Nesse ponto deve ser possível acessar a aplicação no endereço `http://localhost:3000/` e fazer as requisições
 
 ## Backend
 
